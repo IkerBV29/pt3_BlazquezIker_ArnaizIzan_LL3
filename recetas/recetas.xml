@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<receptes>
+  <recepta>
+    <nom>Pasta con salsa de coliflor y pimienta de Jamaica</nom>
+    <imatge src="../imatges/Pasta.jpg" alt="Pasta con salsa de coliflor y pimienta de Jamaica"/>
+    <temps>30 minutos</temps>
+    <dificultat>Fácil</dificultat>
+    <ingredients>
+      <ingredient>250g de pasta</ingredient>
+      <ingredient>1 coliflor pequeña</ingredient>
+      <ingredient>1 cucharadita de pimienta de Jamaica</ingredient>
+      <ingredient>Sal y pimienta al gusto</ingredient>
+      <ingredient>Aceite de oliva</ingredient>
+    </ingredients>
+    <preparacio>
+      <pas>Cocer la pasta según las instrucciones del paquete.</pas>
+      <pas>Hervir la coliflor hasta que esté tierna.</pas>
+      <pas>Licuar la coliflor con un poco de agua de cocción, sal, pimienta y la pimienta de Jamaica.</pas>
+      <pas>Mezclar la salsa con la pasta y servir con un chorrito de aceite de oliva.</pas>
+    </preparacio>
+  </recepta>
+</receptes>

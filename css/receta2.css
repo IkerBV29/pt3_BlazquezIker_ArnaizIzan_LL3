@@ -1,0 +1,153 @@
+* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilo del header */
+header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    position: sticky; 
+    top: 0;
+    background-color: white;
+    z-index: 1000;
+}
+
+header .logo h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+header .logo p {
+    font-size: 14px;
+    color: #777;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #3c8b3f;
+    border-radius: 5px;
+}
+
+/* Estilo del main y recetas */
+main {
+    flex: 1;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+main h1 {
+    font-size: 28px;
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.recipe {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.recipe img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.recipe h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.recipe p {
+    font-size: 14px;
+    color: #777;
+}
+
+.recipe h3 {
+    font-size: 18px;
+    color: #4CAF50;
+    margin-top: 15px;
+}
+
+.recipe ul, .recipe ol {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.recipe li {
+    margin-bottom: 8px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    nav ul {
+        flex-wrap: wrap;
+    }
+}
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
