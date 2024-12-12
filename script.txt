@@ -1,0 +1,55 @@
+from lxml import etree
+
+# Archivos de entrada
+xml_file = 'recipes.xml'
+xslt_file = 'recipes-to-html.xslt'
+
+try:
+    # Cargar y analizar los archivos XML y XSLT
+    xml = etree.parse(xml_file)
+    xslt = etree.parse(xslt_file)
+    transform = etree.XSLT(xslt)
+except (etree.XMLSyntaxError, etree.XSLTParseError) as e:
+    print(f"Error al cargar o analizar los archivos XML o XSLT: {e}")
+    exit(1)
+
+# Verificar si hay elementos <recipe> en el XML
+recipes = xml.xpath('//recipe')
+if not recipes:
+    print("No se encontraron recetas en el archivo XML.")
+    exit(1)
+
+print(f"Se encontraron {len(recipes)} recetas en el XML.")
+
+# Procesar cada receta individualmente
+for recipe in recipes:
+    recipe_id = recipe.get('id', 'sin_id')
+    recipe_name = recipe.findtext('name', 'sin_nombre')
+    
+    print(f"Procesando receta: ID={recipe_id} - Nombre={recipe_name}")
+    
+    try:
+        # Crear un nuevo documento XML con la receta individual
+        individual_recipe = etree.ElementTree(recipe)
+        
+        # Aplicar la transformación XSLT
+        output = transform(individual_recipe)
+        
+        if output is not None:
+            # Generar el nombre del archivo de salida usando el ID de la receta
+            filename = f"recipe_{recipe_id}.html"
+            
+            # Escribir el resultado en el archivo HTML
+            with open(filename, 'wb') as f:
+                f.write(etree.tostring(output, pretty_print=True))
+            
+            print(f"Archivo generado: {filename}")
+        else:
+            print(f"La transformación no generó salida para la receta con ID={recipe_id}")
+    
+    except etree.XSLTApplyError as e:
+        print(f"Error al aplicar la transformación a la receta con ID={recipe_id}: {e}")
+    except Exception as e:
+        print(f"Error inesperado al procesar la receta con ID={recipe_id}: {e}")
+
+print("Proceso completado.")
