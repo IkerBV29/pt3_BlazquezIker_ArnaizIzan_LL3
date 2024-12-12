@@ -1,0 +1,61 @@
+from lxml import etree
+import subprocess
+
+# Archivos de entrada
+xml_file = 'recipes.xml'
+xslt_file = 'recipes-to-html.xslt'
+
+try:
+    # Cargar y analizar los archivos XML y XSLT
+    xml = etree.parse(xml_file)
+    xslt = etree.parse(xslt_file)
+    transform = etree.XSLT(xslt)
+except (etree.XMLSyntaxError, etree.XSLTParseError) as e:
+    print(f"Error al cargar o analizar los archivos XML o XSLT: {e}")
+    exit(1)
+
+# Verificar si hay elementos <recipe> en el XML
+recipes = xml.xpath('//recipe')
+if not recipes:
+    print("No se encontraron recetas en el archivo XML.")
+    exit(1)
+
+print(f"Se encontraron {len(recipes)} recetas en el XML.")
+
+# Procesar cada receta individualmente
+for recipe in recipes:
+    recipe_id = recipe.get('id', 'sin_id')
+    recipe_name = recipe.findtext('name', 'sin_nombre')
+    
+    print(f"Procesando receta: ID={recipe_id} - Nombre={recipe_name}")
+    
+    try:
+        # Crear un nuevo documento XML con la receta individual
+        individual_recipe = etree.ElementTree(recipe)
+        
+        # Aplicar la transformación XSLT usando SAXON-HE
+        xml_temp_file = f"temp_recipe_{recipe_id}.xml"
+        
+        # Guardar el archivo XML temporal para usarlo con SAXON-HE
+        with open(xml_temp_file, 'wb') as f:
+            f.write(etree.tostring(individual_recipe, pretty_print=True))
+        
+        # Comando para ejecutar SAXON-HE
+        command = [
+            'java', '-cp', './SaxonHE12-5J/saxon-he-12.5.jar', 'net.sf.saxon.Transform',
+            f'-s:{xml_temp_file}', f'-xsl:{xslt_file}'
+        ]
+        
+        result = subprocess.run(command, capture_output=True, text=True)
+        
+        if result.returncode == 0:
+            print(f"Transformación exitosa para la receta con ID={recipe_id}")
+        else:
+            print(f"Error en la transformación con SAXON-HE para la receta con ID={recipe_id}: {result.stderr}")
+    
+    except etree.XSLTApplyError as e:
+        print(f"Error al aplicar la transformación a la receta con ID={recipe_id}: {e}")
+    except Exception as e:
+        print(f"Error inesperado al procesar la receta con ID={recipe_id}: {e}")
+
+print("Proceso completado.")
