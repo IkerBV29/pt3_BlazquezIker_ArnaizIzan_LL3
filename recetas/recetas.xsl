@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" encoding="UTF-8" indent="yes"/>
+
+  <!-- Plantilla principal para transformar el XML -->
   <xsl:template match="/">
     <html lang="es">
       <head>
@@ -27,20 +29,30 @@
         </header>
 
         <main>
+          <!-- Sección de la receta -->
           <section class="recipe">
+            <!-- Nombre de la receta -->
             <h2><xsl:value-of select="receptes/recepta/nom"/></h2>
+
+            <!-- Imagen de la receta -->
             <img>
               <xsl:attribute name="src"><xsl:value-of select="receptes/recepta/imatge/@src"/></xsl:attribute>
               <xsl:attribute name="alt"><xsl:value-of select="receptes/recepta/imatge/@alt"/></xsl:attribute>
             </img>
+
+            <!-- Tiempo y dificultad -->
             <p><strong>Tiempo:</strong> <xsl:value-of select="receptes/recepta/temps"/></p>
             <p><strong>Dificultad:</strong> <xsl:value-of select="receptes/recepta/dificultat"/></p>
+
+            <!-- Ingredientes -->
             <h3>Ingredientes</h3>
             <ul>
               <xsl:for-each select="receptes/recepta/ingredients/ingredient">
                 <li><xsl:value-of select="."/></li>
               </xsl:for-each>
             </ul>
+
+            <!-- Pasos -->
             <h3>Pasos</h3>
             <ol>
               <xsl:for-each select="receptes/recepta/preparacio/pas">

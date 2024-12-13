@@ -539,4 +539,73 @@
       <pas>Servir con arroz basmati.</pas>
     </preparacio>
   </recepta>
+  <recepta>
+  <nom>Sushi de Salmón</nom>
+  <imatge src="../imatges/Sushi_Salmon.jpg" alt="Sushi de Salmón"/>
+  <temps>30 minutos</temps>
+  <dificultat>Alta</dificultat>
+  <ingredients>
+    <ingredient>Arroz para sushi</ingredient>
+    <ingredient>Vinagre de arroz</ingredient>
+    <ingredient>Salmón fresco</ingredient>
+    <ingredient>Alga nori</ingredient>
+    <ingredient>Aguacate</ingredient>
+    <ingredient>Wasabi</ingredient>
+    <ingredient>Salsa de soja</ingredient>
+  </ingredients>
+  <preparacio>
+    <pas>Cocer el arroz para sushi y mezclar con vinagre de arroz.</pas>
+    <pas>Cortar el salmón y el aguacate en tiras.</pas>
+    <pas>Colocar el alga nori en una esterilla y cubrir con el arroz cocido.</pas>
+    <pas>Agregar las tiras de salmón y aguacate en el centro.</pas>
+    <pas>Enrollar el sushi utilizando la esterilla.</pas>
+    <pas>Cortar el sushi en piezas y servir con wasabi y salsa de soja.</pas>
+  </preparacio>
+ </recepta>
+ <recepta>
+  <nom>Ramen de Pollo</nom>
+  <imatge src="../imatges/Ramen_Pollo.jpg" alt="Ramen de Pollo"/>
+  <temps>50 minutos</temps>
+  <dificultat>Alta</dificultat>
+  <ingredients>
+    <ingredient>Fideos de ramen</ingredient>
+    <ingredient>Muslos de pollo</ingredient>
+    <ingredient>Caldo de pollo</ingredient>
+    <ingredient>Huevos</ingredient>
+    <ingredient>Cebollín</ingredient>
+    <ingredient>Ajo</ingredient>
+    <ingredient>Ginger fresco</ingredient>
+    <ingredient>Salsa de soja</ingredient>
+    <ingredient>Chiles rojos (opcional)</ingredient>
+  </ingredients>
+  <preparacio>
+    <pas>Cocer los fideos de ramen según las instrucciones del paquete.</pas>
+    <pas>En una sartén, dorar los muslos de pollo con ajo y jengibre.</pas>
+    <pas>Agregar el caldo de pollo y la salsa de soja, cocinar por 30 minutos.</pas>
+    <pas>Cocer los huevos en agua hirviendo por 7 minutos para que queden medios cocidos.</pas>
+    <pas>Servir los fideos en un tazón, verter el caldo caliente y agregar el pollo desmenuzado, huevo, cebollín y chiles.</pas>
+  </preparacio>
+</recepta>
+<recepta>
+  <nom>Tempura de Verduras</nom>
+  <imatge src="../imatges/Tempura_Verduras.jpg" alt="Tempura de Verduras"/>
+  <temps>25 minutos</temps>
+  <dificultat>Media</dificultat>
+  <ingredients>
+    <ingredient>Calabacín</ingredient>
+    <ingredient>Batata</ingredient>
+    <ingredient>Pimientos</ingredient>
+    <ingredient>Harina para tempura</ingredient>
+    <ingredient>Agua fría</ingredient>
+    <ingredient>Sal</ingredient>
+    <ingredient>Aceite para freír</ingredient>
+  </ingredients>
+  <preparacio>
+    <pas>Cortar las verduras en tiras finas.</pas>
+    <pas>Preparar la masa de tempura con harina, agua fría y sal.</pas>
+    <pas>Sumergir las verduras en la masa y freír en aceite caliente hasta que estén doradas y crujientes.</pas>
+    <pas>Sacar las verduras y escurrir el exceso de aceite sobre papel absorbente.</pas>
+    <pas>Servir con salsa de soja o una salsa especial para tempura.</pas>
+  </preparacio>
+</recepta>
 </receptes>
