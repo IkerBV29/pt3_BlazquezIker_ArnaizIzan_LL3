@@ -23,7 +23,7 @@
               <li><a href="recetasp1.html">RECETAS</a></li>
               <li><a href="../contacto/contacto.html">CONTACTO</a></li>
               <li><a href="../otrasCosas/otrasCosas.html">OTRAS COSAS</a></li>
-              <li><a href="#">Iker Blazquez V.</a></li>
+              <li><a href="#">Iker Blazquez Izan Arnaiz</a></li>
             </ul>
           </nav>
         </header>
